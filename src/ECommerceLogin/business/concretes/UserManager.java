@@ -6,6 +6,7 @@ import ECommerceLogin.business.abstracts.UserService;
 import ECommerceLogin.business.abstracts.UserValidateService;
 import ECommerceLogin.business.constant.Messages;
 import ECommerceLogin.dataAccess.abstracts.UserDao;
+import ECommerceLogin.dataAccess.concretes.HibernateUserDao;
 import ECommerceLogin.entities.concretes.User;
 
 public class UserManager implements UserService{
@@ -36,11 +37,26 @@ public class UserManager implements UserService{
 	}
 
 	@Override
-	public void login(User user) {
-		if (user.getEmail()!=null && user.getPassword()!=null) {
-			System.out.println("giriþ basarili: "+user.getName());
+	public void login(String email,String password) {
+		
+		if (email!="" && password!="") {
+			
+			User tempUser = null;
+			
+			for (var onDataUser: userDao.getAll()) {
+				if (email==onDataUser.getEmail() && password==onDataUser.getPassword()) {
+					tempUser=onDataUser;
+				}
+			}
+			
+			if (tempUser!=null) {
+				System.out.println("giris basarili, "+tempUser.getName()+" hosgeldiniz.");
+			}
+			else {
+				System.out.println("sifre ya da eposta hatali.");
+			}
 		}else {
-			System.out.println("email yada sifre eksik.");
+			System.out.println("email ve sifre bos birakilamaz.");
 		}
 		
 	}
@@ -48,6 +64,8 @@ public class UserManager implements UserService{
 	public List<User> getAll() {
 		return userDao.getAll();
 	}
+	
+	
 	
 	private boolean checkNameAndLastname(User user) {
 		if (user.getName().length()>2 && user.getLastname().length()>2) {

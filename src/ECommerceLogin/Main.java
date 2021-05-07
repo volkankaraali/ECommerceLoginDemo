@@ -33,8 +33,10 @@ public class Main {
 			System.out.println(user.getName());
 		}
 		
-		System.out.println("\n*****Login******");
-		userManager.login(user1);
+		System.out.println("\n*****LoginEkrani******");
+		userManager.login("","");
+		userManager.login("test1@mail.com","123456");
+		userManager.login("volkan@mail.com","123456");
 		
 		
 		System.out.println("\n*****GoogleGiriþ******");
