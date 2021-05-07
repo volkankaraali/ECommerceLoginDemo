@@ -8,4 +8,6 @@ Business katmanında, UserService adında bir interface bulunmaktadır ve UserMa
 
 GoogleRegister için(dış servis kullanımı), Core katmanı içerisinde bir tane RegisterService interface’i oluşturup GoogleRegisterAdapter classını bu interfaceden implement ettim. Main içerisinde, RegisterService tipinde bir GoogleRegisterAdapter oluşturarak Google ile register olmayı yaptım. 
 
-![java3](https://user-images.githubusercontent.com/23154975/117463047-ec83ac80-af57-11eb-8323-c904675ce6be.PNG)
+
+![resim_2021-05-07_182411](https://user-images.githubusercontent.com/23154975/117472301-69ffea80-af61-11eb-8896-39caa086a124.png)
+
